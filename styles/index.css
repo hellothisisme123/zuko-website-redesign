@@ -4,6 +4,18 @@ html, body {
     /* max-height: 100%; */
 }
 
+/* top of page drop shadow */
+.dropShadow {
+    box-shadow: 0 0 10.3vh 10.3vh var(--red);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    background-color: transparent;
+    z-index: 1000;
+}
+
 .img img {
     height: 100vh;
     object-fit: cover;
