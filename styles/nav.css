@@ -1,0 +1,63 @@
+nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    z-index: 1000;
+    padding: 0 3%;
+}
+
+a.zuko {
+    font-size: 7rem;
+    font-family: Avatar;
+    text-shadow: 0 4px 4px rgb(0, 0, 0, .5);
+    /* justify-self: flex-start; */
+    /* align-self: flex-start; */
+}
+
+nav a {
+    text-shadow: 0 4px 4px rgb(0, 0, 0, .35);
+    z-index: 1100;
+    font-size: 3.5rem;
+    color: var(--orange);
+    text-decoration: none;
+    font-family: Airbender;
+    --bezMod: 0.05;
+}
+
+.animationsOn nav a {
+    translate: 0% -200%;
+    animation: forwards navAnim .7s calc(var(--index) * 0.3s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes navAnim {
+    0% {
+        translate: 0% -200%;
+    }
+    100% {
+        translate: 0% 0%;
+    }
+}
+
+nav .spacer {
+    flex-grow: 1;
+}
+
+nav .zuko {
+    --index: 0;
+}
+
+nav .backstory {
+    --index: 1;
+}
+
+nav .timeline {
+    --index: 2;
+}
+
+nav .photos {
+    --index: 3;
+}
+
+nav .about {
+    --index: 4;
+}

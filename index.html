@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="./styles/apple_watch_responsive_1.2.css">
     
     <script src="./js/particles.min.js" defer></script>
+    <script src="./js/reducedMotion.js" defer></script>
     <script src="./js/index.js" defer></script>
 
     <link rel="shortcut icon" href="./production/svg/fire nation emblem.svg" type="image/x-icon">
-    <title>Zuko</title>
+    <title>Zuko - Home</title>
 </head>
 <body>
     <div class="container">
@@ -21,19 +22,26 @@
 
         <div class="dropShadow"></div>
         
-        <div class="img fire">
+        <div class="img fire startAnimSettings">
             <img src="./production/svg/fire nation emblem.svg" alt="fire nation emblem">
         </div>
-        <div class="img lotus">
+        <div class="img lotus startAnimSettings">
             <img src="./production/svg/white lotus.svg" alt="white lotus flower symbol">
         </div>
 
-        <h1 class="zuko">Zuko</h1>
+        <a href="index.html" class="zuko startAnimSettings">Zuko</a>
 
-        <a href="#" class="backstory">Backstory</a>
-        <a href="#" class="timeline">Timeline</a>
-        <a href="#" class="about">About</a>
-        <a href="#" class="photos">Photos</a>
+        <a href="#" class="backstory startAnimSettings">Backstory</a>
+        <a href="#" class="timeline startAnimSettings">Timeline</a>
+        <a href="./photos.html" class="photos startAnimSettings">Photos</a>
+        <a href="#" class="about startAnimSettings">About</a>
+
+        <div class="lowAnimationSelector on">
+            <p>Reduced Motion</p>
+            <div class="toggle">
+                <div class="switch"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

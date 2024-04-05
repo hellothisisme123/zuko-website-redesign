@@ -1,0 +1,34 @@
+.photoGallery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    
+    .filters {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        
+        .filter {
+            border-radius: 1000px;
+            font-size: 1.5rem;
+            width: fit-content;
+            padding: 0.125rem 0.75rem;
+            background-color: var(--orange);
+        }
+
+        .filter.active {
+
+        }
+    }
+
+    .photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    grid-column: span 2;
+
+        img {
+            max-height: 35vh;
+        }
+    }
+}

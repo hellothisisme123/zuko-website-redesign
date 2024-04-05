@@ -1,9 +1,12 @@
-.html, body {
+html, body {
     overflow: hidden;
+    /* max-width: 100%; */
+    /* max-height: 100%; */
 }
 
 .img img {
     height: 100vh;
+    object-fit: cover;
 }
 
 .img {
@@ -14,6 +17,21 @@
 .fire {
     left: -13%;
     top: 17%;
+    --index: 0;
+}
+
+.animationsOn .fire {
+    animation: fireImageAnim 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--index) * 0.4s * calc(1 - var(--index) * var(--bezMod))) forwards;
+    left: -50%;
+}
+
+@keyframes fireImageAnim {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: -13%;
+    }   
 }
 
 .fire img {
@@ -23,33 +41,37 @@
 .lotus {
     right: -23%;
     top: -35%;
+    --index: 1;
 }
 
-.dropShadow {
-    box-shadow: 0 0 100px 100px var(--red);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0px;
-    background-color: transparent;
-    z-index: 1000;
+.animationsOn .lotus {
+    right: -50%;
+    animation: lotusImageAnim 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--index) * 0.4s * calc(1 - var(--index) * var(--bezMod))) forwards;
 }
 
-h1, a {
+@keyframes lotusImageAnim {
+    0% {
+        right: -50%;
+    }
+    100% {
+        right: -23%;
+    }   
+}
+
+a {
     color: var(--orange);
     z-index: 1100;
     text-decoration: none;
     position: absolute;
 }
 
-h1 {
+a.zuko {
     font-size: 17rem;
     font-family: Avatar;
     text-shadow: 0 4px 4px rgb(0, 0, 0, .5);
 }
 
-a {
+a:not(.zuko) {
     font-size: 5rem;
     font-family: Airbender;
     text-shadow: 0 4px 4px rgb(0, 0, 0, .25);
@@ -58,31 +80,100 @@ a {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s scale;
 }
 
-a:hover {
+a:not(.zuko):hover {
     scale: 1.1;
 }
 
-h1.zuko {
-    top: 2%;
+@keyframes navItemsOnLoad {
+    0% {
+        top: var(--bottom);
+    }
+    100% {
+        top: var(--top);
+    }
+}
+
+a.zuko {
+    top: 2%;    
+    --top: 2%;
+    --bottom: -40%;
+    --index: 2;
+    margin: 0;
+    padding: 0;
     left: 22%;
 }
 
+.animationsOn a.zuko {
+    top: -40%;    
+    animation: forwards navItemsOnLoad .7s calc(var(--index) * 0.4s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.startAnimSettings {
+    --bezMod: 0.03;
+}
+
 a.backstory {
-    top: 40%;
+    --top: 38%;
+    top: 38%;
+    --bottom: 140%;
+    --index: 3;
     right: 47%;
+}
+
+.animationsOn a.backstory {
+    top: -40%;
+    animation: forwards navItemsOnLoad .7s calc(var(--index) * 0.4s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 a.timeline {
-    top: 53%;
-    right: 30%
+    --top: 52%;
+    top: 52%;
+    --bottom: 140%;
+    --index: 4;
+    right: 30%;
+}
+
+.animationsOn a.timeline {
+    top: -40%;
+    animation: forwards navItemsOnLoad .7s calc(var(--index) * 0.4s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 a.photos {
+    --top: 66%;
     top: 66%;
+    --bottom: 140%;
+    --index: 5;
     right: 47%;
 }
 
+.animationsOn a.photos {
+    top: -40%;
+    animation: forwards navItemsOnLoad .7s calc(var(--index) * 0.4s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 a.about {
-    top: 79%;
-    right: 30%
+    --top: 80%;
+    top: 80%;
+    --bottom: 140%;
+    --index: 6;
+    right: 30%;
+}
+
+.animationsOn a.about {
+    top: -40%;
+    animation: forwards navItemsOnLoad .7s calc(var(--index) * 0.4s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#particles-js {
+    opacity: 0;
+}
+
+.animationsOn #particles-js {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion) {
+    #particles-js {
+        opacity: 0;
+    }
 }
