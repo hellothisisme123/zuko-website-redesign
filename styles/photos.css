@@ -15,10 +15,12 @@
             width: fit-content;
             padding: 0.125rem 0.75rem;
             background-color: var(--orange);
+            cursor: pointer;
+            user-select: none;
         }
 
         .filter.active {
-            
+            background-color: var(--red);
         }
     }
 
@@ -31,8 +33,95 @@
         overflow-y: scroll;
         padding: 16px;
 
-            img {
-                max-height: 35vh;
-            }
+        img {
+            max-height: 35vh;
+            cursor: pointer;
+            display: none;
+        }
+    }
+
+    .photos.screenshot img.screenshot {
+        display: block;
+    }
+
+    .photos.fanart img.fanart {
+        display: block;
+    }
+
+    .photos .whenTheresNoImages {
+        display: none;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .photos:not(.photos.screenshot):not(.photos.fanart) .whenTheresNoImages {
+        display: block;
+    }
+
+    .photoCarousel {
+        
+    }
+}
+
+.animationsOn .photoGallery {
+    .photos img {
+        position: relative;
+        left: -100vw;
+        --bezMod: 0.02;
+        z-index: calc(1000 - var(--index));
+        animation: forwards imageSlideIn .5s calc(var(--index) * 0.2s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .filters {
+        .filter {
+            position: relative;
+            left: -100vw;
+            --bezMod: 0.05;
+            animation: forwards filterSlideIn .5s calc(var(--index) * 0.2s * calc(1 - var(--index) * var(--bezMod))) cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        
+        .filter:nth-child(1) {
+            --index: 5;   
+            --negativeMult: 1;
+        }
+        
+        .filter:nth-child(2) {
+            --index: 5;   
+            --negativeMult: -1;
+        }
+    }
+
+    .photos .whenTheresNoImages {
+        left: -100vw;
+        position: relative;
+        animation: forwards whenTheresNoImagesSlideIn .5s 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+}
+
+@keyframes imageSlideIn {
+    0% {
+        left: -100vw;
+    }
+    100% {
+        left: 0vw;
+    }
+}
+
+@keyframes filterSlideIn {
+    0% {
+        left: calc(-100vw * var(--negativeMult));
+    }
+    100% {
+        left: 0vw;
+    }
+}
+
+@keyframes whenTheresNoImagesSlideIn {
+    0% {
+        left: -100vw;
+    }
+    100% {
+        left: 0vw;
     }
 }
