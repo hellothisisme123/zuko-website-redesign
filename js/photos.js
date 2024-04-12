@@ -17,7 +17,7 @@ photoImages.forEach((photo, i) => {
     photo.style.setProperty("--index", i + 6)
     photo.addEventListener("click", (e) => {
         const photoSrc = photo.src;
-
+        window.open(photoSrc,'_blank');
 
     })
 })
