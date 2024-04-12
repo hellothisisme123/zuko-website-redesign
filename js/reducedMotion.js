@@ -3,7 +3,7 @@ let animations = localStorage.getItem("animations");
 if (animations == null) {
     // thank you to for the code from the next line https://dev.to/natclark/checking-for-reduced-motion-preference-in-javascript-4lp9 
     const notReducedAnimations = !(window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true);
-    localStorage.setItem("animations", `${isReduced}`)
+    localStorage.setItem("animations", `${notReducedAnimations}`)
     animations = localStorage.getItem("animations");
 }
 console.log(animations)
