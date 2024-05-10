@@ -25,8 +25,10 @@
         border-right: 4px solid var(--orange);
         
         .timeframe {
-            /* height: 80vh; */
-            /* line-height: 1.25; */
+            .header {
+                cursor: pointer;
+                user-select: none;
+            }
 
             .bullet {
                 margin-bottom: 2rem;
@@ -62,6 +64,7 @@
 
         .timeframe.active {
             display: block;
+            color: var(--red);
         }
 
         .timeframe {
