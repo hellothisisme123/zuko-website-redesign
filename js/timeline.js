@@ -3,21 +3,12 @@ const contentDetails = document.querySelectorAll(".container > .timeline > .cont
 const navigationBullets = document.querySelectorAll(".container > .timeline > .navigation > .timeframe > .bullet")
 const navigationHeaders = document.querySelectorAll(".container > .timeline > .navigation > .timeframe > .header")
 
-// contentTimeframes.forEach(child => {
-//     const timeframes = [...child.classList].filter(x => x != "active" && x != "timeframe")[0]
-//     console.log(timeframes);
-// })
 
 navigationHeaders.forEach(header => {
     header.addEventListener("click", (e) => {
         const timeframeIndex = Array.prototype.indexOf.call([...header.parentElement.parentElement.children], header.parentElement)
         setActiveTimeframe(timeframeIndex)
     })
-})
-
-contentDetails.forEach(child => {
-    const details = child
-    console.log(details);
 })
 
 navigationBullets.forEach(child => {
